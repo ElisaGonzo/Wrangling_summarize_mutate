@@ -77,6 +77,8 @@ movies_lin71
 ```
 The earliest films on this list date back to 1893. The average runtime of the movies is approximately 82 minutes and 34 seconds, with a standard deviation of around 44 minutes and 35 seconds.    
 
+#Question 2   
+
 ## group_by
 
 The `group_by` function groups cases by common values. 
@@ -85,13 +87,17 @@ This is useful if want to compute summary statistics by group. For example, we m
 
 We already know how to compute the average length of movies overall. What we need to add to our pipeline is a `group_by`
 
-```{r eval=FALSE}
-movies %>%
+```{r eval=TRUE}
+movies_ln84<-movies %>%
   group_by(Action) %>%
+  summarize(mean(length),sd(length),min(year))
   # move your summarize code from the last exercise here!
+movies_ln84
 ```
 
 Which movies are longer, action movies or non-action movies? 
+
+On average, action movies tend to be longer, with runtimes of around 100 minutes, while non-action movies have an average runtime of about 81 minutes. The standard deviation further highlights this difference, as action movies show less variation, with most films clustering around the 100-minute mark, while non-action movies exhibit more variability in their runtimes.   
 
 ### Your turn
 
