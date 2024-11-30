@@ -147,6 +147,8 @@ movies_ln128 <- movies %>%
 movies_ln128
 ```
 
+#Question 5 
+
 ## Putting it together
 
 Now that we have a bunch of wrangling skills, let's put them together. 
@@ -157,9 +159,14 @@ Now that we have a bunch of wrangling skills, let's put them together.
 
 To accomplish that last task, we need a specialty function, `n`. Here's how it works
 
+The "low rating" is defined in the previous question using per_low, which identifies movies with low ratings. We will then filter this data to include only movies with a per_low rating and more than 5 votes. This will give us a dataset of movies that are considered low-rated and have received more than 5 votes. Our next step is to calculate the total number of movies that meet these criteria.
+
 ```{r}
-movies %>%
-  summarize(n())
+movies_ln144<-movies_ln128 %>%
+  filter(per_low > 50 & votes > 5)%>%
+  select(per_low,votes,title) %>%
+  summarize(Bdmvs = n())
+movies_ln144
 ```
 
 - what is the average length of movies in the dataset, in hours? 
